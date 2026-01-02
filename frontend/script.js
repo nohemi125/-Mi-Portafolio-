@@ -1069,6 +1069,37 @@ const prevComentariosBtn = document.getElementById('prevComentarios');
 const nextComentariosBtn = document.getElementById('nextComentarios');
 const comentarioSubmitBtn = comentarioForm?.querySelector('button[type="submit"]');
 
+
+// Toast azul para feedback de formularios
+const ensureToastContainer = () => {
+  let container = document.getElementById('toastContainer');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toastContainer';
+    document.body.appendChild(container);
+  }
+  return container;
+};
+
+function showToast(message) {
+  const container = ensureToastContainer();
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast toast-info';
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  // Animar entrada en el siguiente frame para que la transición funcione
+  requestAnimationFrame(() => toast.classList.add('visible'));
+
+  setTimeout(() => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.remove(), 200);
+  }, 2800);
+}
+
 document.querySelectorAll('.estrellas span').forEach(estrella => {
   estrella.addEventListener('click', () => {
     estrellasSeleccionadas = estrella.dataset.value;
@@ -1106,12 +1137,12 @@ async function enviarComentario() {
 
 
   if (!nombre || !mensaje) {
-    alert('Completa tu nombre y comentario');
+    showToast('Completa tu nombre y comentario');
     return;
   }
 
   if (!estrellasSeleccionadas) {
-    alert('Selecciona una valoración');
+    showToast('Selecciona una valoración');
     return;
   }
 

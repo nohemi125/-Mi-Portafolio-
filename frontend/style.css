@@ -748,6 +748,8 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .skill-category {
@@ -760,6 +762,7 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   flex-direction: column;
   gap: 12px;
   min-height: 230px;
+  height: 100%;
 }
 
 .skill-category:hover {
@@ -808,6 +811,8 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   gap: 25px;
   max-width: 900px;
   margin: 0 auto;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .bases-datos,
@@ -822,6 +827,7 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   flex-direction: column;
   gap: 12px;
   min-height: 230px;
+  height: 100%;
 }
 
 .bases-datos:hover,
@@ -1499,6 +1505,50 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   box-shadow: 0 10px 30px rgba(162, 210, 255, 0.5);
 }
 
+
+/* Toast azul para feedback ligero */
+#toastContainer {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.toast {
+  min-width: 240px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1b7fc4, #68b6ff);
+  color: #f7fbff;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 10px 30px rgba(0, 59, 112, 0.35);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: auto;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  #toastContainer {
+    left: 16px;
+    right: 16px;
+  }
+
+  .toast {
+    min-width: 0;
+  }
+}
+
 .lista-comentarios {
   display: flex;
   gap: 16px;
@@ -1650,9 +1700,8 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   right: 30px;
   width: 350px;
   max-height: 500px;
-  /* background: linear-gradient(13deg,  #0f0e1e, #6b3f9d); */
+  background: linear-gradient(13deg,  #0f0e1e, #6b3f9d);
   border: 2px solid var(--color-morado);
-  backdrop-filter: blur(30px);
   border-radius: 20px;
   display: none;
   flex-direction: column;
@@ -1752,6 +1801,18 @@ footer {
 
   .skills-container {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .skill-category-bottom {
+    grid-auto-rows: auto;
+  }
+
+  .skill-category,
+  .bases-datos,
+  .herramientas {
+    height: auto;
+    min-height: auto;
   }
 }
 
