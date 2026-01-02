@@ -613,6 +613,20 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   transition: all 0.4s ease;
 }
 
+
+
+
+
+.card.oculto {
+  display: none;
+}
+
+
+
+
+
+
+
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(199, 125, 255, 0.5);

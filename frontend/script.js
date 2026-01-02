@@ -5,25 +5,29 @@ const sr = ScrollReveal({
   distance: '60px',
   duration: 900,
   easing: 'ease-out',
-  reset: true 
+  reset: false  // No resetear para mantener elementos visibles
 })
 
 // Título
 sr.reveal('.projects-title', {
-  origin: 'top'
+  origin: 'top',
+  reset: false
 })
 
 // Grid completo
 sr.reveal('.proyectos-grid', {
   origin: 'bottom',
-  delay: 200
+  delay: 200,
+  reset: false  // Mantener visible al hacer scroll
 })
 
 // Cards una por una (efecto cascada)
-sr.reveal('.proyectos-grid .card', {
-  origin: 'bottom',
-  interval: 150
-})
+// DESHABILITADO: ScrollReveal estaba ocultando tarjetas al hacer scroll hacia abajo
+// sr.reveal('.proyectos-grid .card', {
+//   origin: 'bottom',
+//   interval: 150,
+//   reset: false  // Evitar reset que causa problemas con filtrado
+// })
 
 
 
@@ -581,7 +585,8 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+    // Solo agregar visible si el elemento NO está filtrado/oculto
+    if (entry.isIntersecting && !entry.target.classList.contains("oculto")) {
       entry.target.classList.add("visible")
     }
   })
@@ -964,46 +969,94 @@ if (window.matchMedia("(hover: none)").matches) {
 
 
 // ======FILTRO DE PROYECTOS=======
-document.addEventListener('DOMContentLoaded', () => {
-  const botones = document.querySelectorAll('.filtro-btn');
-  const cards = document.querySelectorAll('.card');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const botones = document.querySelectorAll('.filtro-btn');
+//   const cards = document.querySelectorAll('.card');
+//   const proyectosGrid = document.querySelector('.proyectos-grid');
 
-  function mostrarProyectos(categoria) {
-    cards.forEach(card => {
-      const cat = card.dataset.category;
+//   function mostrarProyectos(categoria) {
+//     let hayElementosVisibles = false;
+    
+//     cards.forEach(card => {
+//       const cat = card.dataset.category;
 
-      // Si es "todos" o coincide con la categoría, mostrar
-      if (categoria === 'todos' || cat === categoria) {
-        card.style.display = 'block';
-        card.style.visibility = 'visible';
-        card.style.opacity = '1';
-      } 
-      // Ocultar las que no coinciden
-      else {
-        card.style.display = 'none';
-        card.style.visibility = 'hidden';
-        card.style.opacity = '0';
-      }
-    });
-  }
+//       // Si es "todos" o coincide con la categoría, mostrar
+//       if (categoria === 'todos' || cat === categoria) {
+//         card.style.display = '';
+//         card.style.visibility = 'visible';
+//         card.style.opacity = '1';
+//         hayElementosVisibles = true;
+//       } 
+//       // Ocultar las que no coinciden
+//       else {
+//         card.style.display = 'none';
+//         card.style.visibility = 'hidden';
+//       }
+//     });
+//   }
 
-  botones.forEach(btn => {
-    btn.addEventListener('click', () => {
-      botones.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+//   botones.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//       botones.forEach(b => b.classList.remove('active'));
+//       btn.classList.add('active');
 
-      const filtro = btn.dataset.filter;
-      mostrarProyectos(filtro);
-    });
-  });
+//       const filtro = btn.dataset.filter;
+//       mostrarProyectos(filtro);
+//     });
+//   });
 
-  // Mostrar 3 al cargar
-  mostrarProyectos('todos');
-});
+//   mostrarProyectos('todos');
+// });
 
 
 
 // FUNCIONALIDAD DEL FORMULARIO DE COMENTARIOS
+  const botones = document.querySelectorAll(".filtro-btn");
+  const cards = document.querySelectorAll(".proyectos-grid .card");
+
+  function mostrarCategoria(categoria) {
+    const filtro = (categoria || "todos").trim().toLowerCase();
+
+    cards.forEach(card => {
+      const cardCategoria = (card.dataset.category || "").trim().toLowerCase();
+      const esVisible = filtro === "todos" || cardCategoria === filtro;
+
+      if (esVisible) {
+        // Mostrar: remover clase oculto y asegurar visibilidad
+        card.classList.remove("oculto");
+        card.style.display = "";
+        card.style.opacity = "1";
+        card.style.visibility = "visible";
+        card.style.transform = "none";
+        card.setAttribute("data-filtered", "true");  // Flag para no ocultar mientras scroll
+      } else {
+        // Ocultar: agregar clase oculto y display none
+        card.classList.add("oculto");
+        card.style.display = "none";
+        card.removeAttribute("data-filtered");
+      }
+    });
+  }
+
+  botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+      botones.forEach(b => b.classList.remove("active"));
+      boton.classList.add("active");
+
+      const categoria = boton.dataset.filter;
+      mostrarCategoria(categoria);
+    });
+  });
+
+  if (botones.length) {
+    botones[0].classList.add("active");
+    mostrarCategoria(botones[0].dataset.filter);
+  }
+
+
+
+
+
 let estrellasSeleccionadas = 0;
 console.log('✅ JS de comentarios cargado');
 
