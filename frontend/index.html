@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨Mi Portafolio✨</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <!-- Font Awesome para iconos sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fallback CDN para Font Awesome (en caso de que otro CDN falle) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- Splide js-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- AOS ANIMATIONS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+
+  </head>
+<body>
+    <nav class="navbar">
+        <i class="ri-menu-fill" id="toggle"></i> 
+       
+        <ul class="menu">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#About">Sobre mi</a></li>
+            <li><a href="#herramientas">habilidades</a></li>
+            <li><a href="#Skills">Servicios</a></li>
+            <li><a href="#Testimonio">Opiniones</a></li>
+            <li><a href="#Contact">Contacto</a></li>
+        </ul>
+    </nav>   
+
+
+ 
+<section class="principal-inicio" id="home">
+
+   <!-- Partículas -->
+
+   <div class="hero section">
+        <div class="hero_title section_title">
+            <span id="span">!Hola Mundo¡</span>
+            <h1>
+                soy Nohemi.
+                <span id="text"> Conoce un poco sobre mi </span>
+            </h1>
+            <h3>Desarrolladora de Software</h3> 
+        </div>
+
+      <div class="nav_btn">
+            
+             <div class="redes-sociales">
+                <a href="https://wa.me/57300658519?text=¡Hola,+vi+tu+portafolio!" class="social-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/nohemy-morelo-rivas-8728a2324/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/nohemi125" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+
+   </div>
+</section>
+
+<!-- ===SEGUINDA SECCION: FOTO Y CV=== -->
+  <section class="fotoMia-cv" id="About" data-aos="fade-up">
+
+  <div class="about section">
+    <div class="about_Image section_image" data-aos="fade-right">
+      <img src="./imagenes/me.png" alt="foto mia"  data-aos="zoom-in">
+
+      <div class="icon icon1" data-aos="fade-up" data-aos-delay="100">
+        <img src="./imagenes/figma.png" alt="">
+      </div>
+      <div class="icon icon2" data-aos="fade-up" data-aos-delay="200">
+        <img src="./imagenes/visual-basico.png" alt="" data-aos-delay="200">
+      </div>
+      <div class="icon icon3" data-aos="fade-up" data-aos-delay="300">
+        <img src="./imagenes/github.png" alt="">
+      </div>
+      <div class="icon icon4" data-aos="fade-up" data-aos-delay="400">
+        <img src="./imagenes/js.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="CV" data-aos="fade-up" data-aos-delay="500">
+    <button type="button" class="download-cv" id="openCvModal" data-cv="imagenes/CV.pdf">
+      <span class="btn-text">Ver CV</span>
+      <i class="fas fa-file-pdf btn-icon"></i>
+
+    </button>
+  </div>
+
+</section>
+
+
+   <section class="about-me" id="about-me" data-aos="fade-up">
+
+  <div class="about-info">
+
+    <div class="about-text" data-aos="fade-right">
+      <h3 data-aos="fade-down">Sobre mi</h3>
+
+      <p data-aos="fade-up" data-aos-delay="150">
+        Desarrolladora de Software con enfoque en desarrollo front-end y back-end.
+        Cuento con habilidades en dibujo artístico, lo que aporta un enfoque 
+        visual y creativo a los proyectos que desarrollo. He trabajado en diversos 
+        proyectos académicos y personales que me han permitido fortalecer mis 
+        competencias técnicas, incluyendo patrones de diseño, bases de datos y
+        lógica de programación.
+      </p>
+    </div>
+
+    <div class="avatar-container" id="avatar"
+         data-aos="zoom-in-left"
+         data-aos-delay="300">
+      <img src="./imagenes/-saludando-me.gif" alt="Mi Avatar saludando">
+    </div>
+
+  </div>
+</section>
+
+
+    
+  <!-- secion de proyectos -->
+ <!-- <section class="proyectos">
+   <div class="projects-content">
+            <h2 class="projects-title">Mis Proyectos</h2>
+            <div class="proyectos-grid">
+
+                <div class="card portal">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto1.png" alt="">
+                    <button class="play-btn" data-video="imagenes/GALERIA.mp4" id="funcion-video">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <h3>Portal Academico</h3>
+                    <p>Un sistema de gestión académico. Las características incluyen registro de estudiantes y profesores, con su respectiva seleccion de asignaturas, Registro de tareas y calificacion de estas edicion y cancelacion.</p>
+                     <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        <span>nodejs</span>
+                        <span>Express</span>
+                        <span>MySQL</span>
+
+                    <div class="card-buttons">
+                        <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+
+                    </div>
+                </div>
+
+                <div class="card music">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto2.png" alt="">
+                      <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <h3>Reproductor de Música</h3>
+                    <p>Aplicación web moderna que permite gestionar y reproducir música favorita. Incluye sistema de autenticación, gestión de playlists y añadir a favoritos, búsqueda de canciones, permite los ajustes de usuario.</p>
+                   <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        <span>nodejs</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>Api</span>
+                        
+
+                    <div class="card-buttons">
+                        <a href="https://reproductor-de-musica-2.onrender.com/" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+
+                    </div>
+                </div>
+
+                  <div class="card gallery">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto5.png" alt="">
+                        <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                          <i class="fas fa-play"></i>
+                        </button>
+                       
+                    </div>
+                    <h3>Sistema de Gestion de biblioteca</h3>
+                    <p>Proyecto web desarrollado para administrar préstamos de libros en una biblioteca.
+                    Permite llevar el control de miembros, libros, préstamos, devoluciones, multas, personalizacio del sistema 
+                    y envio de notificaciones.</p>
+                     <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        <span>Bootstrap</span>
+                        <span>nodejs</span>
+                        <span>Express</span>
+                        <span>MySQL</span>
+                        <span>APIs</span>
+                    <div class="card-buttons">
+                        <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+                    </div>
+                </div>
+
+                <div class="card countries">
+                   <div class="card-img">
+                    <img src="imagenes/proyecto3.png" alt="">
+                       <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                        <i class="fas fa-play"></i>
+                      </button>
+                    </div>
+                    <h3>Buscador de Países</h3>
+                    <p>Proyecto web interactivo que permite buscar información de cualquier país y mostrar el clima actual en su capital. El fondo cambia dinámicamente según la temperatura del país consultado.</p>
+                   <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        <span>API</span>
+
+                    <div class="card-buttons">
+                        <a href="https://nohemi125.github.io/BuscadorPaises/" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+
+                    </div>
+                </div>
+
+                <div class="card gallery">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto4.png" alt="">
+                        <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                          <i class="fas fa-play"></i>
+                        </button>
+                       
+                    </div>
+                    <h3>Galeria de Dibujos</h3>
+                    <p>Galería web personal que presenta la evolución de mis ilustraciones, desde mis primeros dibujos
+                         en la infancia hasta mis trabajos más recientes..</p>
+                         <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        <span>react</span>
+
+                    <div class="card-buttons">
+                        <a href="https://galeria-dibujos.onrender.com" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+                    </div>
+                </div>
+
+
+                <div class="card editor-text">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto7.png" alt="">
+                        <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                          <i class="fas fa-play"></i>
+                        </button>
+                       
+                    </div>
+                    <h3>app restaurante</h3>
+                    <p>Editor de texto interactivo con herramientas de edición, traducción automática y exportación. Incluye buscador de texto, estilos de formato y exportación a PDF.</p>
+                     <h4>herramientas</h4>
+                        <span>css</span>
+                        <span>react</span>
+                        <span>python</span>
+                        <span>flask</span>
+                        <span>postgreSQL</span>
+
+                        
+                    <div class="card-buttons">
+                        <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+                    </div>
+                </div>
+
+                  <div class="card editor-text">
+                    <div class="card-img">
+                    <img src="imagenes/proyecto6.png" alt="">
+                        <button class="play-btn" data-video="imagenes/GALERIA.mp4">
+                          <i class="fas fa-play"></i>
+                        </button>
+                       
+                    </div>
+                    <h3>Editor de Texto Traductor</h3>
+                    <p>Editor de texto interactivo con herramientas de edición, traducción automática y exportación. Incluye buscador de texto, estilos de formato y exportación a PDF.</p>
+                     <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        
+                    <div class="card-buttons">
+                        <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+                    </div>
+                </div>
+
+
+                
+
+            </div>
+        </div>
+ </section> -->
+<!-- SECCIÓN DE PROYECTOS -->
+<section class="proyectos">
+
+  <div class="projects-content">
+    <h2 class="projects-title">Mis Proyectos</h2>
+
+    <!-- FILTROS -->
+    <div class="filtros">
+      <button class="filtro-btn active" data-filter="todos">Todos</button>
+      <button class="filtro-btn" data-filter="academicos">Académicos</button>
+      <button class="filtro-btn" data-filter="colaboracion">En colaboración</button>
+      <button class="filtro-btn" data-filter="personales">Personales</button>
+    </div>
+
+    <!-- GRID DE PROYECTOS -->
+    <div class="proyectos-grid">
+
+      <!--========== ACADEMICOS======== -->
+      <div class="card portal" data-category="academicos">
+        <div class="card-img">
+          <img src="./imagenes/proyecto1.png" alt="Portal Académico">
+          <button class="play-btn" data-video="./imagenes/portalAcademico.mp4">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>Portal Académico</h3>
+        <p>Sistema de gestión académico con registro de estudiantes, profesores, asignaturas, tareas y calificaciones.</p>
+
+        <h4>Herramientas</h4>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>Express</span>
+        <span>MySQL</span>
+
+        <div class="card-buttons">
+          <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+    <!-- Sistema de Gestión de Biblioteca -->
+      <div class="card gallery" data-category="academicos">
+        <div class="card-img">
+          <img src="./imagenes/proyecto5.png" alt="Sistema Biblioteca">
+          <button class="play-btn" data-video="./imagenes/gestionBiblioteca.mp4">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>Sistema de Gestión de Biblioteca</h3>
+        <p>Administración de préstamos, devoluciones, multas, miembros y notificaciones del sistema.</p>
+
+        <h4>Herramientas</h4>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Bootstrap</span>
+        <span>Node.js</span>
+        <span>Express</span>
+        <span>MySQL</span>
+        <span>API</span>
+
+        <div class="card-buttons">
+          <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+      <!-- edito de texto traductor -->
+         <div class="card editor-text"  data-category="academicos">
+                    <div class="card-img">
+                    <img src="./imagenes/proyecto6.png" alt="">
+                        <button class="play-btn" data-video="./imagenes/editorTexto.mp4">
+                          <i class="fas fa-play"></i>
+                        </button>
+                       
+                    </div>
+                    <h3>Editor de Texto Traductor</h3>
+                    <p>Editor de texto interactivo con herramientas de edición, traducción automática y exportación. Incluye buscador de texto, estilos de formato y exportación a PDF.</p>
+                     <h4>herramientas</h4>
+                     <span>html</span>
+                        <span>css</span>
+                        <span>javascript</span>
+                        
+                    <div class="card-buttons">
+                        <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+                        <a href="landing-pag.html" class="btn-demo">ver codigo</a>
+                    </div>
+                </div>
+
+
+
+      <!--========= PERSONALES =======-->
+      <div class="card countries" data-category="personales">
+        <div class="card-img">
+          <img src="./imagenes/buscadorPises.png" alt="Buscador de Países">
+          <button class="play-btn" data-video="./imagenes/buscadorPaises.mp4">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>Buscador de Países</h3>
+        <p>Consulta información de países y clima actual, con fondos dinámicos según la temperatura.</p>
+
+        <h4>Herramientas</h4>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>API</span>
+
+        <div class="card-buttons">
+          <a href="https://nohemi125.github.io/BuscadorPaises/" class="btn-demo">Ir al proyecto</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+
+    <!-- Reproductor de Música -->
+       <div class="card music" data-category="personales">
+        <div class="card-img">
+          <img src="./imagenes/proyecto2.png" alt="Reproductor de Música">
+          <button class="play-btn" data-video="./imagenes/reproductorMusica.mp4">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>Reproductor de Música</h3>
+        <p>Aplicación web para reproducir música, gestionar playlists, favoritos y autenticación de usuarios.</p>
+
+        <h4>Herramientas</h4>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>Express</span>
+        <span>MongoDB</span>
+        <span>API</span>
+
+        <div class="card-buttons">
+          <a href="https://reproductor-de-musica-2.onrender.com/" class="btn-demo">Ir al proyecto</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+      <!-- Galería de Dibujos -->
+      <div class="card gallery" data-category="personales">
+        <div class="card-img">
+          <img src="./imagenes/proyecto4.png" alt="Galería de Dibujos">
+          <button class="play-btn" data-video="./imagenes/galeriaDeDibujos.mp4">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>Galería de Dibujos</h3>
+        <p>Galería personal que muestra la evolución de mis ilustraciones desde la infancia.</p>
+
+        <h4>Herramientas</h4>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React</span>
+
+        <div class="card-buttons">
+          <a href="https://galeria-dibujos.onrender.com" class="btn-demo">Ir al proyecto</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+      <!-- app para restaurante -->
+      <div class="card editor-text" data-category="personales">
+        <div class="card-img">
+          <img src="./imagenes/proyecto7.png" alt="App Restaurante">
+          <button class="play-btn" data-gif="./imagenes/under.gif">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <h3>App Restaurante</h3>
+        <p>Aplicación para gestión de pedidos, mesas y roles (cliente, cocina y cajero).</p>
+
+        <h4>Herramientas</h4>
+        <span>CSS</span>
+        <span>React</span>
+        <span>Python</span>
+        <span>Flask</span>
+        <span>PostgreSQL</span>
+
+        <div class="card-buttons">
+          <a href="landing-pag.html" class="btn-demo">proximamente</a>
+          <a href="#" class="btn-demo">Ver código</a>
+        </div>
+      </div>
+
+
+      <!-- ====COLABORACIÓN======= -->
+     
+        <div class="card tienda-libros" data-category="colaboracion">
+          <div class="card-img">
+            <img src="./imagenes/proyecto8.png" alt="Tienda de Libros Online">
+            <button class="play-btn" data-video="./imagenes/tiendaLibro.mp4">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+
+          <h3>Tienda de Libros Online</h3>
+
+            <p>
+              Plataforma web para la venta de libros.
+              Permite a cualquier usuario registrarse, personalizar su perfil y realizar compras.
+              El sistema cuenta con un panel de administración para la gestión de usuarios,
+              ventas, proveedores y publicación de  libros.
+            </p>
+
+          <h4>Herramientas</h4>
+          <span>JavaScript</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>MySQL</span>
+
+          <div class="card-buttons">
+            <a href="landing-pag.html" class="btn-demo">Ir al proyecto</a>
+            <a href="landing-pag.html" class="btn-demo">Ver código</a>
+          </div>
+        </div>
+
+     <!-- PrestAPP -->
+        <div class="card pagadiarios" data-category="colaboracion">
+      <div class="card-img">
+        <img src="./imagenes/proyecto9.png" alt="Sistema de Pagadiarios">
+        <button class="play-btn" data-gif="./imagenes/under.gif">
+          <i class="fas fa-play"></i>
+        </button>
+      </div>
+
+      <h3>Sistema de Gestión de Pagadiarios</h3>
+
+          <p>
+            App para la gestion de préstamos tipo pagadiario.
+            El sistema maneja roles:cobradores y administrador.
+            Los cobradores gestionan préstamos y registran los pagos diarios,
+            el administrador gestiona todo el proceso financiero.
+          </p>
+
+      <h4>Herramientas</h4>
+      <span>JavaScript</span>
+      <span>Node.js</span>
+      <span>Express</span>
+      <span>Bootstrap</span>
+      <span>MySQL</span>
+
+      
+
+      <div class="card-buttons">
+        <a href="#" class="btn-demo">Próximamente</a>
+        <a href="#" class="btn-demo">Ver código</a>
+      </div>
+    </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- SECION DE HABILIDADES -->
+   <section class="skills" id="herramientas">
+  <h2 class="herramientas-title">Herramientas y Tecnologías</h2>
+  <p>
+    Cuento con conocimientos básicos e intermedios en diversas herramientas y tecnologías
+    utilizadas en el desarrollo de software:
+  </p>
+
+  <div class="skills-container">
+    <!-- Lenguajes -->
+    <div class="skill-category lenguajes">
+      <h3>Lenguajes de Programación</h3>
+      <ul>
+        <li>HTML </li>
+        <li>JavaScript </li>
+        <li>PHP </li>
+        <li>Python </li>
+      </ul>
+    </div>
+
+    <!-- Frameworks -->
+    <div class="skill-category framework">
+      <h3>Frameworks y Librerías</h3>
+      <ul>
+        <li>Bootstrap </li>
+        <li>Tailwind CSS </li>
+        <li>React.js </li>
+        <li>React Native </li>
+        <li>Node.js </li>
+        <li>Express.js </li>
+        <li>Flask </li>
+        <li>Vue.js </li>
+        <li>Electron </li>
+      </ul>
+    </div>
+
+    <!-- Bases de datos y Herramientas -->
+    <div class="skill-category-bottom">
+      <div class="bases-datos">
+        <h3>Bases de Datos</h3>
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <div class="herramientas">
+        <h3>Herramientas y Otros</h3>
+        <ul>
+          <li>Git & GitHub</li>
+          <li>Postman</li>
+          <li>Figma</li>
+          <li>Canva</li>
+          <li>Visual Studio Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECION DE IDIOMAS -->
+<section class="idiomas" id="idiomas">
+  <h2 class="idiomas-title">Idiomas</h2>
+
+  <div class="idiomas-container">
+    <div class="idioma">
+      <h3>Español</h3>
+      <span class="nivel nativo">Nativo</span>
+      <div class="estrellas-idioma">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <p>Dominio completo del idioma en comprensión, expresión oral y escrita.</p>
+    </div>
+
+    <div class="idioma">
+      <h3>Inglés</h3>
+      <span class="nivel a2">A2 – En curso</span>
+      <div class="estrellas-idioma">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>Comprensión de expresiones cotidianas y capacidad para mantener conversaciones simples.</p>
+    </div>
+
+    <div class="idioma">
+      <h3>Portugués</h3>
+      <span class="nivel a1">A1</span>
+      <div class="estrellas-idioma">
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>Conocimiento de palabras y expresiones basicas.</p>
+    </div>
+  </div>
+</section>
+
+  
+<!-- SECCION DE SERVICIOS -->
+<section class="servicios" id="Skills">
+  <h2 class="servicios-title">Servicios</h2>
+  <p class="servicios-desc">
+    Desarrollo soluciones digitales adaptadas a las necesidades de cada proyecto,
+    combinando diseño, funcionalidad y tecnología.
+  </p>
+
+  <div class="servicios-grid">
+
+    <div class="servicio-card" id="card1">
+      <i class="fas fa-file-code"></i>
+      <h3>Landing Page</h3>
+      <p>
+        Diseño y desarrollo de landing pages modernas, responsivas y optimizadas
+        para presentar productos, servicios o marcas personales.
+      </p>
+    </div>
+
+    <div class="servicio-card" id="card2">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Software Web Completo</h3>
+      <p>
+        Desarrollo de aplicaciones web completas, desde el diseño del frontend
+        hasta la lógica del backend y la base de datos.
+      </p>
+    </div>
+
+    <div class="servicio-card" id="card3">
+      <i class="fas fa-id-card"></i>
+      <h3>Portafolios Web</h3>
+      <p>
+        Creación de portafolios profesionales y personalizados para destacar
+        habilidades, proyectos y experiencia.
+      </p>
+    </div>
+
+    <div class="servicio-card" id="card4">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Aplicaciones Web Móviles (APK)</h3>
+      <p>
+        Desarrollo de aplicaciones web convertidas a APK para dispositivos móviles,
+      </p>
+    </div>
+
+    <div class="servicio-card" id="card5">
+      <i class="fas fa-desktop"></i>
+      <h3>Software de Escritorio</h3>
+      <p>
+        Creación de aplicaciones de escritorio multiplataforma utilizando Electron,
+        ideales para sistemas internos o herramientas personalizadas.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECION DE CURSOS Y CERTIFICACIONES --> 
+     <section class="cursos" id="courses">
+        <div class="courses-content">
+            <h2 class="courses-title">Cursos y Certificaciones</h2>
+            <p class="courses-subtitle">Aprendizaje Continuo en mi desarrollo profesional</p>
+            
+            <div class="courses-grid">
+                <div class="course-card" data-course="javascript">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fab fa-js-square fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>JavaScript</h3>
+                        <p class="course-provider">WomakersCode</p>
+                        <p class="course-description">Programacion asincrona, y conceptos modernos de JavaScript.</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">Estructura de Datos</span>
+                            <span class="skill-tag">APIs</span>
+                            <span class="skill-tag">Promises</span>
+                            <span class="skill-tag">Async/Await</span>
+                            <span class="skill-tag">Funciones</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2024</span>
+                            <button class="view-certificate" onclick="openCertificateModal('javascript')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-course="react">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fab fa-react fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Desarrollo de React</h3>
+                        <p class="course-provider">#</p>
+                        <p class="course-description">Conceptos  de React, incluyendo hooks, context API, manejo de estado y optimizacion de componentes.</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">React Hooks</span>
+                            <span class="skill-tag">Context API</span>
+                            <span class="skill-tag">Redux</span>
+                            <span class="skill-tag">Testing</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2024</span>
+                            <button class="view-certificate" onclick="openCertificateModal('react')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-course="database">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fas fa-database fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Base de Datos SQL</h3>       
+                        <p class="course-provider">#</p>
+                        <p class="course-description">Fundamentos de bases de datos, consultas SQL, normalizacion.</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2023</span>
+                            <button class="view-certificate" onclick="openCertificateModal('database')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-course="uiux">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fab fa-figma fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>FIGMA</h3>
+                        <p class="course-provider">Desafio_Latam</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Prototyping</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2025</span>
+                            <button class="view-certificate" onclick="openCertificateModal('Figma')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-course="nodejs">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fab fa-node-js fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Node.js & Express</h3>
+                        <p class="course-provider">FreeCodeCamp</p>
+                        <p class="course-description">Desarrollo backend con Node.js, framework Express.</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">Autenticacion</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2025</span>
+                            <button class="view-certificate" onclick="openCertificateModal('nodejs')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-course="git">
+                    <div class="course-header">
+                        <div class="course-icon">
+                            <i class="fab fa-git-alt fa-2x"></i>
+                        </div>
+                        <div class="course-badge">Completado</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Git & GitHub </h3>
+                        <p class="course-provider">Desafio_Latam</p>
+                        <p class="course-description">Version control, collaborative development and project management with Git.</p>
+                        <div class="course-skills">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">Branching</span>
+                            <span class="skill-tag">Collaboration</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-date">2025</span>
+                            <button class="view-certificate" onclick="openCertificateModal('git')">
+                                <i class="fas fa-certificate"></i>
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- SECCION DE CONTACTO -->
+ <section class="contacto" id="Contact">
+  <h2 class="contacto-title">Solicita un servicio</h2>
+  <p class="contacto-desc">
+ ¿Tienes un proyecto en mente? Contáctame y conversemos sobre tu idea.  </p>
+
+   <p> Disponible para proyectos, y debug a medianoche</p>
+
+  <div class="contacto-cards">
+
+    <a href="tel:+573000000000" class="contacto-card">
+      <i class="fas fa-phone"></i>
+      <h4>Celular</h4>
+      <p>+57 300 000 0000</p>
+    </a>
+
+    <a href="mailto:tucorreo@email.com" class="contacto-card">
+      <i class="fas fa-envelope"></i>
+      <h4>Correo</h4>
+      <p>nohemimorelounal@gmail.com</p>
+    </a>
+
+  <div class="contacto-card mapa-hover" id="btnMapa">
+  <i class="fas fa-map-marker-alt"></i>
+  <h4>Ubicación</h4>
+  <p>Colombia</p>
+
+  <!-- MAPA HOVER (DESKTOP) -->
+  <div class="mapa-popup">
+    <a 
+      href="https://maps.app.goo.gl/KwBaQYBKB3d6vpS28"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir ubicación en Google Maps">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63233.86987902728!2d-76.69851536900195!3d7.882839668514794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e500d7989b605b3%3A0x5f9acc044c863dc!2sApartad%C3%B3%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sus!4v1766784719222!5m2!1ses!2sus"
+       loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </a>
+  </div>
+
+<!-- MODAL MAPA MÓVIL -->
+<div class="modal-mapa" id="modalMapa">
+  <div class="modal-mapa-content">
+    <button class="cerrar-mapa">✕</button>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31616.9377328722!2d-76.64529223467561!3d7.882803107510262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e500d7989b605b3%3A0x5f9acc044c863dc!2sApartad%C3%B3%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1766783985434!5m2!1ses!2sco" 
+     loading="lazy" >
+    </iframe>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+<section class="comentarios" id="Testimonio">
+
+  <h2 class="comentarios-title">Opiniones y Valoraciones</h2>
+  <p class="comentarios-desc">
+    Deja tu comentario y califica mi trabajo
+  </p>
+
+
+
+  <form id="comentarioForm" class="comentario-form">
+    <input type="text" id="nombre" placeholder="Tu nombre" required>
+
+    <textarea id="mensaje" placeholder="Escribe tu comentario" required></textarea>
+
+    <div class="estrellas">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+
+  <button type="submit">Enviar</button>
+
+
+  </form>
+
+  <div id="listaComentarios" class="lista-comentarios"></div>
+
+    <div class="comentarios-nav">
+      <button id="prevComentarios" aria-label="Comentarios anteriores">◄</button>
+      <button id="nextComentarios" aria-label="Comentarios siguientes">►</button>
+    </div>
+    
+</section>
+
+
+<!-- Botón flotante para chatbot -->
+<button id="chatbotBtn" class="chatbot-btn">
+  <i class="fas fa-comments"></i>
+</button>
+
+<!-- Ventana del chatbot -->
+<div id="chatbotBox" class="chatbot-box">
+  <div class="chatbot-header">
+    <span>Asistente virtual</span>
+    <button id="closeChat">✖</button>
+  </div>
+
+  <div class="chatbot-body">
+    <p class="bot-msg">
+      👋 ¡Hola!  
+      <br><br>
+      🤖 <strong>Chatbot en desarrollo</strong> — próximamente con respuestas automáticas.
+      <br><br>
+      Mientras tanto, puedes contactarme desde la sección
+      <strong>"Solicita un servicio"</strong> para más información.
+    </p>
+  </div>
+
+  <div class="chatbot-footer">
+    <input 
+      type="text" 
+      placeholder="Escribe tu pregunta..." 
+      disabled
+    >
+    <button disabled>Enviar</button>
+  </div>
+</div>
+
+
+  <!-- Modal para el CV -->
+  <div id="cvModal" class="video-modal cv-modal">
+    <div class="modal-content cv-modal-content">
+        <span class="close-modal cv-close">&times;</span>
+        <div class="cv-viewer">
+          <embed id="cvFrame" type="application/pdf" />
+        </div>
+        <div class="cv-actions">
+          <a id="cvDownload" class="download-btn" download>
+            <i class="fas fa-arrow-down"></i>
+            Descargar CV
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Modal para el video -->
+  <div id="videoModal" class="video-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <video id="modalVideo" controls>
+          <source src="" type="video/mp4">
+        </video>
+        <img id="modalGif" class="modal-gif" alt="Vista previa del proyecto en proceso">
+    </div>
+  </div>
+
+  <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Nohemi. Todos los derechos reservados.</p>
+            <p>Hecho con ❤️ y muchas 😭</p>
+        </div>
+    </footer>
+
+<audio id="confetiSound" preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_65f1b08c7f.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
