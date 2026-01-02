@@ -15,7 +15,7 @@ const routerComentarios = require('./backend/router_comentarios');
 app.use('/api/comentarios', routerComentarios);
 
 /* conexión Mongo */
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error(err));
 
