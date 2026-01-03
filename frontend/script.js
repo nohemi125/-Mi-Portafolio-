@@ -1,33 +1,28 @@
-console.log("JS ARRIBA");
 
 // ====== SCROLLREVEAL - PROYECTOS ======
 const sr = ScrollReveal({
   distance: '60px',
   duration: 900,
   easing: 'ease-out',
-  reset: false  // No resetear para mantener elementos visibles
+  reset: true  
 })
 
 // Título
 sr.reveal('.projects-title', {
-  origin: 'top',
-  reset: false
+  origin: 'top'
 })
 
 // Grid completo
 sr.reveal('.proyectos-grid', {
   origin: 'bottom',
-  delay: 200,
-  reset: false  // Mantener visible al hacer scroll
+  delay: 200
 })
 
-// Cards una por una (efecto cascada)
-// DESHABILITADO: ScrollReveal estaba ocultando tarjetas al hacer scroll hacia abajo
-// sr.reveal('.proyectos-grid .card', {
-//   origin: 'bottom',
-//   interval: 150,
-//   reset: false  // Evitar reset que causa problemas con filtrado
-// })
+// Cada tarjeta de proyecto (cascada)
+sr.reveal('.card', {
+  origin: 'bottom',
+  interval: 200
+})
 
 
 
@@ -80,7 +75,7 @@ const srIdiomas = ScrollReveal({
   distance: '70px',
   duration: 850,
   easing: 'ease-out',
-  reset: true //  se repite al hacer scroll
+  reset: true 
 })
 
 // Título
@@ -108,7 +103,7 @@ const srServicios = ScrollReveal({
   distance: '70px',
   duration: 850,
   easing: 'ease-out',
-  reset: true // 🔥 se repite al hacer scroll
+  reset: true
 })
 
 // Título
@@ -217,9 +212,9 @@ srContacto.reveal('.contacto-card', {
 
 // ====AOS ANIMATIONS sesion2====
 AOS.init({
-    duration: 900,     // duración de la animación
+    duration: 900,     
     easing: 'ease-out',
-    once: false        // se anima solo la primera vez
+    once: false        
   });
 
 
@@ -228,8 +223,8 @@ VANTA.NET({
   el: "#home",
   color: 0xa855f7,
   backgroundColor: 0x000000,
-  points: 12.0,
-  maxDistance: 20.0,
+  points: 10.0,
+  maxDistance: 10.0,
   spacing: 18.0
 });
 
@@ -272,6 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
     showLines: false
   });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   VANTA.DOTS({
@@ -672,8 +669,11 @@ if (titleSpan) {
 
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset
-  if (hero) {
+  // Desactivar parallax en dispositivos móviles (menores a 768px)
+  if (hero && window.innerWidth > 768) {
     hero.style.transform = `translateY(${scrolled * 0.5}px)`
+  } else if (hero) {
+    hero.style.transform = 'none'
   }
 })
 
@@ -971,92 +971,6 @@ if (window.matchMedia("(hover: none)").matches) {
     }
   })
 }
-
-
-// ======FILTRO DE PROYECTOS=======
-// document.addEventListener('DOMContentLoaded', () => {
-//   const botones = document.querySelectorAll('.filtro-btn');
-//   const cards = document.querySelectorAll('.card');
-//   const proyectosGrid = document.querySelector('.proyectos-grid');
-
-//   function mostrarProyectos(categoria) {
-//     let hayElementosVisibles = false;
-    
-//     cards.forEach(card => {
-//       const cat = card.dataset.category;
-
-//       // Si es "todos" o coincide con la categoría, mostrar
-//       if (categoria === 'todos' || cat === categoria) {
-//         card.style.display = '';
-//         card.style.visibility = 'visible';
-//         card.style.opacity = '1';
-//         hayElementosVisibles = true;
-//       } 
-//       // Ocultar las que no coinciden
-//       else {
-//         card.style.display = 'none';
-//         card.style.visibility = 'hidden';
-//       }
-//     });
-//   }
-
-//   botones.forEach(btn => {
-//     btn.addEventListener('click', () => {
-//       botones.forEach(b => b.classList.remove('active'));
-//       btn.classList.add('active');
-
-//       const filtro = btn.dataset.filter;
-//       mostrarProyectos(filtro);
-//     });
-//   });
-
-//   mostrarProyectos('todos');
-// });
-
-
-
-// FUNCIONALIDAD DEL FORMULARIO DE COMENTARIOS
-  const botones = document.querySelectorAll(".filtro-btn");
-  const cards = document.querySelectorAll(".proyectos-grid .card");
-
-  function mostrarCategoria(categoria) {
-    const filtro = (categoria || "todos").trim().toLowerCase();
-
-    cards.forEach(card => {
-      const cardCategoria = (card.dataset.category || "").trim().toLowerCase();
-      const esVisible = filtro === "todos" || cardCategoria === filtro;
-
-      if (esVisible) {
-        // Mostrar: remover clase oculto y asegurar visibilidad
-        card.classList.remove("oculto");
-        card.style.display = "";
-        card.style.opacity = "1";
-        card.style.visibility = "visible";
-        card.style.transform = "none";
-        card.setAttribute("data-filtered", "true");  // Flag para no ocultar mientras scroll
-      } else {
-        // Ocultar: agregar clase oculto y display none
-        card.classList.add("oculto");
-        card.style.display = "none";
-        card.removeAttribute("data-filtered");
-      }
-    });
-  }
-
-  botones.forEach(boton => {
-    boton.addEventListener("click", () => {
-      botones.forEach(b => b.classList.remove("active"));
-      boton.classList.add("active");
-
-      const categoria = boton.dataset.filter;
-      mostrarCategoria(categoria);
-    });
-  });
-
-  if (botones.length) {
-    botones[0].classList.add("active");
-    mostrarCategoria(botones[0].dataset.filter);
-  }
 
 
 
