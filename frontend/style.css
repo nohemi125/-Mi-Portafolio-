@@ -1869,6 +1869,7 @@ footer {
 
   .skill-category-bottom {
     grid-auto-rows: auto;
+    grid-template-columns: 1fr;
   }
 
   .skill-category,
@@ -1876,6 +1877,14 @@ footer {
   .herramientas {
     height: auto;
     min-height: auto;
+  }
+
+  .skills {
+    padding: 60px 5%;
+  }
+
+  .skills-container {
+    gap: 20px;
   }
 }
 
@@ -2066,6 +2075,20 @@ footer {
   html {
     overflow-x: hidden;
   }
+
+  .skills {
+    padding: 50px 4%;
+  }
+
+  .skills-container {
+    gap: 15px;
+  }
+
+  .skill-category,
+  .bases-datos,
+  .herramientas {
+    padding: 20px;
+  }
 }
 
 /* Media query adicional para pantallas muy pequeñas */
@@ -2108,6 +2131,10 @@ footer {
 
   .redes-sociales {
     gap: 15px;
+  }
+
+  .skills {
+    padding: 40px 3%;
   }
 }
 
