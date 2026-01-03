@@ -375,8 +375,12 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.position = 'absolute'
     canvas.style.top = '0'
     canvas.style.left = '0'
+    canvas.style.width = '100%'
+    canvas.style.maxWidth = '100vw'
+    canvas.style.height = '100%'
     canvas.style.zIndex = '1'
     canvas.style.pointerEvents = 'none'
+    canvas.style.overflow = 'hidden'
     
     testimonioSection.style.position = 'relative'
     testimonioSection.insertBefore(canvas, testimonioSection.firstChild)
@@ -796,7 +800,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const videoModal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   const modalGif = document.getElementById('modalGif');
-  const closeModal = document.querySelector('.close-modal');
   const playButtons = document.querySelectorAll('.play-btn');
 
   const resetMedia = () => {
@@ -838,6 +841,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (videoSource) {
           videoSource.src = videoSrc;
         }
+        modalVideo.muted = true;
         modalVideo.load();
         modalVideo.play();
       }
@@ -848,14 +852,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Cerrar modal al hacer clic en la X
-  if (closeModal) {
-    closeModal.addEventListener('click', function() {
-      if (videoModal) {
+  // Cerrar modal al hacer clic en la X (buscar el botón dentro del videoModal)
+  if (videoModal) {
+    const videoCloseBtn = videoModal.querySelector('.close-modal');
+    if (videoCloseBtn) {
+      videoCloseBtn.addEventListener('click', function() {
         videoModal.classList.remove('active');
-      }
-      resetMedia();
-    });
+        resetMedia();
+      });
+    }
   }
 
   // Cerrar modal al hacer clic fuera del video

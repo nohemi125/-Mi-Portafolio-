@@ -9,6 +9,20 @@
   text-decoration: none;
 }
 
+/* Prevenir scroll horizontal en todos los dispositivos */
+*, *::before, *::after {
+  max-width: 100%;
+}
+
+section,
+.principal-inicio,
+.fotoMia-cv,
+.about-me {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 :root {
   /* Aplicando la paleta de colores exacta solicitada */
   --color-azul: #a2d2ff;
@@ -27,14 +41,25 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   background-color: var(--color-azul);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
   /* color: var(--color-morado-oscuro); */
   font-family: var(--font-text);
   color: #560bad;
+}
+
+/* Asegurar que todos los canvas estén contenidos */
+canvas {
+  max-width: 100vw !important;
+  overflow: hidden;
 }
 
 /* Navbar con diseño profesional */
@@ -117,6 +142,12 @@ body {
   transform: rotate(90deg);
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+}
+
 
 /* ===== Partículas de fondo ===== */
 #particles-js {
@@ -127,6 +158,8 @@ body {
   height: 100%;
   z-index: 1;
   pointer-events: none; /* para que no bloquee clicks */
+  overflow: hidden;
+  max-width: 100vw;
 }
 
 /* El contenido debe ir encima */
@@ -1640,9 +1673,11 @@ background: linear-gradient( 13deg, #560bad,#9a1686);
   bottom: 0;
   width: 100%;
   height: 100%;
+  max-width: 100vw;
   z-index: 0;
   pointer-events: none;
   display: block;
+  overflow: hidden;
 }
 
 .comentarios {
@@ -1853,9 +1888,38 @@ footer {
     font-size: 1.4rem;
   }
 
+  /* Ajustar imagen y contenedor para móviles */
   .about_Image {
     max-width: 280px;
     height: 280px;
+    margin: 0 auto;
+  }
+
+  /* Ajustar iconos flotantes */
+  .icon {
+    height: 45px;
+    width: 45px;
+    padding: 7px;
+  }
+
+  .icon1 {
+    top: 8%;
+    left: -3%;
+  }
+
+  .icon2 {
+    right: -3%;
+    top: 35%;
+  }
+
+  .icon3 {
+    left: 3%;
+    bottom: 8%;
+  }
+
+  .icon4 {
+    right: 3%;
+    top: 12%;
   }
 
   .avatar-container img {
@@ -1873,11 +1937,28 @@ footer {
     width: calc(100% - 40px);
     right: 20px;
   }
+
+  /* Asegurar que todo esté dentro del viewport */
+  .principal-inicio,
+  .fotoMia-cv,
+  .about-me,
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 @media (max-width: 480px) {
   .hero_title h1 {
     font-size: 2rem;
+  }
+
+  .hero_title #span {
+    font-size: 1rem;
+  }
+
+  .hero_title h3 {
+    font-size: 1.2rem;
   }
 
   .projects-title,
@@ -1897,6 +1978,108 @@ footer {
 
   .social-link i {
     font-size: 1.5rem;
+  }
+
+  /* Ajustar sección principal en móviles */
+  .principal-inicio {
+    padding: 80px 3% 40px;
+    min-height: auto;
+  }
+
+  /* Ajustar iconos flotantes */
+  .icon {
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+  }
+
+  .icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Ajustar posiciones de iconos */
+  .icon1 {
+    top: 5%;
+    left: -8%;
+  }
+
+  .icon2 {
+    top: 5%;
+    right: -8%;
+  }
+
+  .icon3 {
+    bottom: 5%;
+    left: -8%;
+  }
+
+  .icon4 {
+    bottom: 5%;
+    right: -8%;
+  }
+
+  /* Ajustar imagen de perfil */
+  .about_Image {
+    max-width: 250px;
+    height: 250px;
+  }
+
+  /* Ajustar padding de secciones */
+  .fotoMia-cv {
+    padding: 60px 5%;
+  }
+
+  /* Ocultar elementos que puedan causar overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+}
+
+/* Media query adicional para pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .principal-inicio {
+    padding: 70px 2% 30px;
+  }
+
+  .hero_title h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero_title #span {
+    font-size: 0.9rem;
+  }
+
+  .hero_title h3 {
+    font-size: 1.1rem;
+  }
+
+  .about_Image {
+    max-width: 220px;
+    height: 220px;
+  }
+
+  .icon {
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-link i {
+    font-size: 1.3rem;
+  }
+
+  .redes-sociales {
+    gap: 15px;
   }
 }
 
