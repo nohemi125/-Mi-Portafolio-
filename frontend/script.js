@@ -219,17 +219,104 @@ AOS.init({
 
 
 // ====Particulas flotantes====
-VANTA.NET({
-  el: "#home",
-  color: 0xa855f7,
-  backgroundColor: 0x000000,
-  points: 10.0,
-  maxDistance: 10.0,
-  spacing: 18.0
-});
+// VANTA.NET({
+//   el: "#home",
+//   color: 0xa855f7,
+//   backgroundColor: 0x000000,
+//   points: 10.0,
+//   maxDistance: 10.0,
+//   spacing: 18.0
+// });
 
 
 // PARTIVULAS FLOTANTES EN 3cer SECCION
+
+const canvas = document.getElementById("space");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const STAR_COUNT = 500;
+const stars = [];
+
+class Star {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width - canvas.width / 2;
+    this.y = Math.random() * canvas.height - canvas.height / 2;
+    this.z = Math.random() * canvas.width;
+
+    // Tamaño (pequeñas, medianas, grandes)
+    this.size = Math.random() < 0.7 ? 1 : Math.random() < 0.9 ? 2 : 3;
+
+    // Tipo de estrella
+    this.type = Math.random() < 0.85 ? "circle" : "cross";
+
+    // Velocidad según tamaño
+    this.speed = this.size === 3 ? 14 : this.size === 2 ? 10 : 6;
+  }
+
+  update() {
+    this.z -= this.speed;
+    if (this.z <= 0) {
+      this.reset();
+      this.z = canvas.width;
+    }
+  }
+
+  draw() {
+    const sx = (this.x / this.z) * canvas.width + canvas.width / 2;
+    const sy = (this.y / this.z) * canvas.height + canvas.height / 2;
+
+    ctx.strokeStyle = "white";
+    ctx.fillStyle = "white";
+
+    if (this.type === "circle") {
+      ctx.beginPath();
+      ctx.arc(sx, sy, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      // Cruz (X)
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(sx - this.size, sy - this.size);
+      ctx.lineTo(sx + this.size, sy + this.size);
+      ctx.moveTo(sx + this.size, sy - this.size);
+      ctx.lineTo(sx - this.size, sy + this.size);
+      ctx.stroke();
+    }
+  }
+}
+
+for (let i = 0; i < STAR_COUNT; i++) {
+  stars.push(new Star());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(star => {
+    star.update();
+    star.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   VANTA.DOTS({
