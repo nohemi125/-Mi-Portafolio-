@@ -977,10 +977,9 @@ if (window.matchMedia("(hover: none)").matches) {
 
 
 let estrellasSeleccionadas = 0;
-console.log('✅ JS de comentarios cargado');
 
 // Base de API (soporta file:// y localhost)
-const API_BASE = window.location.origin.startsWith('file') ? 'http://localhost:3000' : window.location.origin;
+const API_BASE = "https://mi-portafolio-production-a849.up.railway.app";
 
 const comentarioForm = document.getElementById('comentarioForm');
 const listaComentariosEl = document.getElementById('listaComentarios');
@@ -1077,7 +1076,7 @@ const res = await fetch(`${API_BASE}/api/comentarios`, {
 
     if (!res.ok) {
       const errorText = await res.text().catch(() => '');
-      console.error('❌ Error body', errorText);
+      console.error(' Error body', errorText);
       let errorData = {};
       try { errorData = JSON.parse(errorText); } catch (e) {}
       throw new Error(errorData.error || 'No se pudo enviar el comentario');
@@ -1121,3 +1120,8 @@ async function cargarComentarios() {
 console.log('Form encontrado:', document.getElementById('comentarioForm'));
 
 cargarComentarios();
+
+// Auto-refresh comentarios cada 3 segundos
+setInterval(() => {
+  cargarComentarios();
+}, 3000);
