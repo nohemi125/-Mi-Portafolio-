@@ -101,15 +101,12 @@ body {
 
 
 #space {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-/* background: radial-gradient( circle at bottom,var(--color-morado), #252729,  #000 );  z-index: -1;  */
-}
-
-#space {
+  z-index: 0;
   background: radial-gradient(
     circle at center,
     #000 0%,
