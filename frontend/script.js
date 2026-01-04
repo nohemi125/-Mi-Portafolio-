@@ -1066,7 +1066,10 @@ if (window.matchMedia("(hover: none)").matches) {
 let estrellasSeleccionadas = 0;
 
 // Base de API (soporta file:// y localhost)
-const API_BASE = "https://mi-portafolio-production-a849.up.railway.app";
+const API_BASE =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'https://mi-portafolio-production-a849.up.railway.app';
 
 const comentarioForm = document.getElementById('comentarioForm');
 const listaComentariosEl = document.getElementById('listaComentarios');
