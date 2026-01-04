@@ -1060,92 +1060,80 @@ if (window.matchMedia("(hover: none)").matches) {
 }
 
 
-
-
-
 let estrellasSeleccionadas = 0;
 
-// Base de API (soporta file:// y localhost)
+  //  API BASE (local / producción)
+  
 const API_BASE =
   window.location.hostname === 'localhost'
     ? 'http://localhost:3000'
     : 'https://mi-portafolio-production-a849.up.railway.app';
 
+  //  ELEMENTOS
+
 const comentarioForm = document.getElementById('comentarioForm');
 const listaComentariosEl = document.getElementById('listaComentarios');
 const prevComentariosBtn = document.getElementById('prevComentarios');
 const nextComentariosBtn = document.getElementById('nextComentarios');
-const comentarioSubmitBtn = comentarioForm?.querySelector('button[type="submit"]');
 
 
-// Toast azul para feedback de formularios
-const ensureToastContainer = () => {
+  //  TOAST
+
+function showToast(message) {
   let container = document.getElementById('toastContainer');
   if (!container) {
     container = document.createElement('div');
     container.id = 'toastContainer';
     document.body.appendChild(container);
   }
-  return container;
-};
-
-function showToast(message) {
-  const container = ensureToastContainer();
-  if (!container) return;
 
   const toast = document.createElement('div');
   toast.className = 'toast toast-info';
   toast.textContent = message;
 
   container.appendChild(toast);
-
-  // Animar entrada en el siguiente frame para que la transición funcione
   requestAnimationFrame(() => toast.classList.add('visible'));
 
   setTimeout(() => {
     toast.classList.remove('visible');
     setTimeout(() => toast.remove(), 200);
-  }, 2800);
+  }, 2500);
 }
+
+  //  ESTRELLAS
 
 document.querySelectorAll('.estrellas span').forEach(estrella => {
   estrella.addEventListener('click', () => {
-    estrellasSeleccionadas = estrella.dataset.value;
+    estrellasSeleccionadas = Number(estrella.dataset.value);
 
     document.querySelectorAll('.estrellas span').forEach(e => {
-      e.classList.toggle('activa', e.dataset.value <= estrellasSeleccionadas);
+      e.classList.toggle('activa', Number(e.dataset.value) <= estrellasSeleccionadas);
     });
   });
 });
 
-if (comentarioForm) {
-  comentarioForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    await enviarComentario();
-    if (window.lanzarConfetiPremium && comentarioSubmitBtn) {
-      window.lanzarConfetiPremium(comentarioSubmitBtn);
-    }
-  });
-} else {
-  console.error(' No se encontró el formulario de comentarios');
-}
+  //  SCROLL COMENTARIOS
 
-const scrollComentarios = (direction) => {
+   function scrollComentarios(direction) {
   if (!listaComentariosEl) return;
-  const cardWidth = listaComentariosEl.querySelector('.comentario')?.offsetWidth || 320;
-  listaComentariosEl.scrollBy({ left: direction * (cardWidth + 16), behavior: 'smooth' });
-};
+  const cardWidth = listaComentariosEl.querySelector('.comentario')?.offsetWidth || 300;
+  listaComentariosEl.scrollBy({
+    left: direction * (cardWidth + 16),
+    behavior: 'smooth'
+  });
+}
 
 prevComentariosBtn?.addEventListener('click', () => scrollComentarios(-1));
 nextComentariosBtn?.addEventListener('click', () => scrollComentarios(1));
+
+//  ENVIAR COMENTARIO
 
 async function enviarComentario() {
   const nombre = document.getElementById('nombre')?.value.trim();
   const mensaje = document.getElementById('mensaje')?.value.trim();
 
-
   if (!nombre || !mensaje) {
-    showToast('Completa tu nombre y comentario');
+    showToast('Completa todos los campos');
     return;
   }
 
@@ -1154,64 +1142,74 @@ async function enviarComentario() {
     return;
   }
 
-  const data = { nombre, mensaje, estrellas: Number(estrellasSeleccionadas) };
-
   try {
-const res = await fetch(`${API_BASE}/api/comentarios`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-});
+    const res = await fetch(`${API_BASE}/api/comentarios`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
+      },
+      body: JSON.stringify({
+        nombre,
+        mensaje,
+        estrellas: estrellasSeleccionadas
+      })
+    });
 
+    if (!res.ok) throw new Error('Error al enviar comentario');
 
-    if (!res.ok) {
-      const errorText = await res.text().catch(() => '');
-      console.error(' Error body', errorText);
-      let errorData = {};
-      try { errorData = JSON.parse(errorText); } catch (e) {}
-      throw new Error(errorData.error || 'No se pudo enviar el comentario');
-    }
-
-    const saved = await res.json().catch(() => null);
-
-    document.getElementById('comentarioForm').reset();
+    comentarioForm.reset();
     estrellasSeleccionadas = 0;
-    document.querySelectorAll('.estrellas span').forEach(e => e.classList.remove('activa'));
+    document.querySelectorAll('.estrellas span')
+      .forEach(e => e.classList.remove('activa'));
+
     await cargarComentarios();
-  } catch (err) {
-    console.error(err);
-    alert(err.message || 'Error al enviar comentario');
+    showToast('Comentario enviado ✨');
+  } catch (error) {
+    console.error(error);
+    showToast('No se pudo enviar el comentario');
   }
 }
 
+  //  FORM SUBMIT
+
+comentarioForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  enviarComentario();
+});
+
+  //  CARGAR COMENTARIOS
+
 async function cargarComentarios() {
   try {
-    const res = await fetch(`${API_BASE}/api/comentarios`);
-    if (!res.ok) throw new Error('No se pudieron cargar los comentarios');
-    const comentarios = await res.json();
+    const res = await fetch(`${API_BASE}/api/comentarios`, {
+      method: 'GET',
+      headers: { 'Cache-Control': 'no-cache' }
+    });
 
-    const lista = document.getElementById('listaComentarios');
-    if (!lista) return;
-    lista.innerHTML = '';
+    if (!res.ok) throw new Error('Error al cargar comentarios');
+
+    const comentarios = await res.json();
+    listaComentariosEl.innerHTML = '';
 
     comentarios.forEach(c => {
-      lista.innerHTML += `
+      listaComentariosEl.innerHTML += `
         <div class="comentario">
           <strong>${c.nombre}</strong>
-           <p>${c.mensaje}</p>
+          <p>${c.mensaje}</p>
           <div class="rating">${'★'.repeat(c.estrellas)}</div>
         </div>
       `;
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
-console.log('Form encontrado:', document.getElementById('comentarioForm'));
 
-cargarComentarios();
+//  ===============================
+//    INIT
 
-// Auto-refresh comentarios cada 3 segundos
-setInterval(() => {
+document.addEventListener('DOMContentLoaded', () => {
   cargarComentarios();
-}, 3000);
+});
+
