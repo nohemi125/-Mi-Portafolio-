@@ -1042,8 +1042,13 @@ const btnMapa = document.getElementById("btnMapa")
 const modalMapa = document.getElementById("modalMapa")
 const cerrarMapa = document.querySelector(".cerrar-mapa")
 
-// solo en dispositivos sin hover (móvil)
-if (window.matchMedia("(hover: none)").matches) {
+// solo en dispositivos sin hover (móvil) y si los elementos existen
+if (
+  window.matchMedia("(hover: none)").matches &&
+  btnMapa &&
+  modalMapa &&
+  cerrarMapa
+) {
   btnMapa.addEventListener("click", () => {
     modalMapa.classList.add("active")
   })
