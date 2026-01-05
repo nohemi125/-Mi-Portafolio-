@@ -1172,6 +1172,12 @@ async function enviarComentario() {
 
     await cargarComentarios();
     showToast('Comentario enviado ✨');
+    
+    // Lanzar confeti al enviar comentario
+    const btnEnviar = document.querySelector('#comentarioForm button[type="submit"]');
+    if (btnEnviar) {
+      window.lanzarConfetiPremium(btnEnviar);
+    }
   } catch (error) {
     console.error(error);
     showToast('No se pudo enviar el comentario');
@@ -1233,3 +1239,10 @@ document.addEventListener('DOMContentLoaded', () => {
   cargarComentarios();
 });
 
+// Scroll suave al hacer click en el indicador de scroll
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  scrollIndicator.addEventListener('click', () => {
+    document.getElementById('About')?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
