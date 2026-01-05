@@ -1143,7 +1143,7 @@ async function enviarComentario() {
   }
 
   try {
-    const res = await fetch(`/api/comentarios`, {
+    const res = await fetch(`${API_BASE}/api/comentarios`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1182,7 +1182,7 @@ comentarioForm?.addEventListener('submit', (e) => {
 
 async function cargarComentarios() {
   try {
-    const res = await fetch(`/api/comentarios`, {
+    const res = await fetch(`${API_BASE}/api/comentarios`, {
       method: 'GET',
       headers: { 'Cache-Control': 'no-cache' }
     });
