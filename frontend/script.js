@@ -1063,7 +1063,7 @@ if (window.matchMedia("(hover: none)").matches) {
 let estrellasSeleccionadas = 0;
 
   //  API BASE (local / producción)
-  
+
 const API_BASE =
   window.location.hostname === 'localhost'
     ? 'http://localhost:3000'
@@ -1143,7 +1143,7 @@ async function enviarComentario() {
   }
 
   try {
-    const res = await fetch(`${API_BASE}/api/comentarios`, {
+    const res = await fetch(`/api/comentarios`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1182,7 +1182,7 @@ comentarioForm?.addEventListener('submit', (e) => {
 
 async function cargarComentarios() {
   try {
-    const res = await fetch(`${API_BASE}/api/comentarios`, {
+    const res = await fetch(`/api/comentarios`, {
       method: 'GET',
       headers: { 'Cache-Control': 'no-cache' }
     });
