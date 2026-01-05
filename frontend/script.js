@@ -1183,22 +1183,22 @@ comentarioForm?.addEventListener('submit', (e) => {
   //  CARGAR COMENTARIOS
 
 async function cargarComentarios() {
-  console.log('📥 Intentando cargar comentarios desde:', `${API_BASE}/api/comentarios`);
+  console.log(' Intentando cargar comentarios desde:', `${API_BASE}/api/comentarios`);
   try {
     const res = await fetch(`${API_BASE}/api/comentarios`, {
       method: 'GET',
       headers: { 'Cache-Control': 'no-cache' }
     });
 
-    console.log('📊 Respuesta recibida - Status:', res.status, 'OK:', res.ok);
+    console.log(' Respuesta recibida - Status:', res.status, 'OK:', res.ok);
 
     if (!res.ok) throw new Error('Error al cargar comentarios');
 
     const comentarios = await res.json();
-    console.log('✅ Comentarios recibidos:', comentarios.length, 'items');
+    console.log(' Comentarios recibidos:', comentarios.length, 'items');
     
     if (!listaComentariosEl) {
-      console.error('❌ No se encontró el elemento listaComentarios');
+      console.error(' No se encontró el elemento listaComentarios');
       return;
     }
     
