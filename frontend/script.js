@@ -216,15 +216,12 @@ srContacto.reveal('.contacto-card', {
 
 
 
-// ====AOS ANIMATIONS sesion2====
+// ====AOS ANIMATIONS sesion2 cv y foto mia ====
 AOS.init({
-    duration: 1000,     
-    easing: 'ease-out-back',  // Efecto de rebote
-    once: false,
-    offset: 120,              // Inicia la animación 120px antes de que el elemento sea visible
-    delay: 0,
-    anchorPlacement: 'top-bottom'
-  });
+  offset: 150,
+  once: false
+});
+
 
 
 // ====Toggle de Herramientas====
