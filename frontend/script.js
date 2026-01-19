@@ -1,8 +1,8 @@
 
 // ====== SCROLLREVEAL - PROYECTOS ======
 const sr = ScrollReveal({
-  distance: '60px',
-  duration: 900,
+  distance: '80px',
+  duration: 1000,
   easing: 'ease-out',
   reset: true  
 })
@@ -12,13 +12,19 @@ sr.reveal('.projects-title', {
   origin: 'top'
 })
 
-// Grid completo
-sr.reveal('.proyectos-grid', {
-  origin: 'bottom',
+// Proyectos impares (desde la izquierda)
+sr.reveal('.proyecto-wrapper:nth-child(odd)', {
+  origin: 'left',
   delay: 200
 })
 
-// Cada tarjeta de proyecto (cascada)
+// Proyectos pares (desde la derecha)
+sr.reveal('.proyecto-wrapper:nth-child(even)', {
+  origin: 'right',
+  delay: 200
+})
+
+// Cada tarjeta de proyecto
 sr.reveal('.card', {
   origin: 'bottom',
   interval: 200
@@ -212,10 +218,40 @@ srContacto.reveal('.contacto-card', {
 
 // ====AOS ANIMATIONS sesion2====
 AOS.init({
-    duration: 900,     
-    easing: 'ease-out',
-    once: false        
+    duration: 1000,     
+    easing: 'ease-out-back',  // Efecto de rebote
+    once: false,
+    offset: 120,              // Inicia la animación 120px antes de que el elemento sea visible
+    delay: 0,
+    anchorPlacement: 'top-bottom'
   });
+
+
+// ====Toggle de Herramientas====
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButtons = document.querySelectorAll('.toggle-herramientas');
+  
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const herramientasHeader = this.parentElement;
+      const cardTags = herramientasHeader.nextElementSibling;
+      
+      if (cardTags && cardTags.classList.contains('card-tags')) {
+        const isVisible = cardTags.style.display !== 'none';
+        
+        if (isVisible) {
+          cardTags.style.display = 'none';
+          this.classList.remove('active');
+          this.setAttribute('aria-label', 'Mostrar herramientas');
+        } else {
+          cardTags.style.display = 'flex';
+          this.classList.add('active');
+          this.setAttribute('aria-label', 'Ocultar herramientas');
+        }
+      }
+    });
+  });
+});
 
 
 // ====Particulas flotantes====
@@ -887,7 +923,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const videoModal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   const modalGif = document.getElementById('modalGif');
-  const playButtons = document.querySelectorAll('.play-btn');
+  const playButtons = document.querySelectorAll('.play-btn, .play-btn-demo, .btn-video');
 
   const resetMedia = () => {
     if (modalVideo) {
@@ -1244,5 +1280,41 @@ const scrollIndicator = document.querySelector('.scroll-indicator');
 if (scrollIndicator) {
   scrollIndicator.addEventListener('click', () => {
     document.getElementById('About')?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+
+// ====== NAVEGACIÓN HORIZONTAL DE PROYECTOS (MÓVIL) ======
+const proyectosGrid = document.querySelector('.proyectos-grid');
+const prevProyectoBtn = document.querySelector('.prev-proyecto');
+const nextProyectoBtn = document.querySelector('.next-proyecto');
+
+if (proyectosGrid && prevProyectoBtn && nextProyectoBtn) {
+  
+  // Función para desplazar proyectos
+  const scrollProyectos = (direction) => {
+    const wrapperWidth = proyectosGrid.querySelector('.proyecto-wrapper')?.offsetWidth || 300;
+    const scrollAmount = wrapperWidth + 20; // wrapper width + gap
+    
+    proyectosGrid.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  // Event listeners
+  prevProyectoBtn.addEventListener('click', () => scrollProyectos(-1));
+  nextProyectoBtn.addEventListener('click', () => scrollProyectos(1));
+
+  // Ocultar/mostrar botones según posición del scroll
+  proyectosGrid.addEventListener('scroll', () => {
+    const scrollLeft = proyectosGrid.scrollLeft;
+    const maxScroll = proyectosGrid.scrollWidth - proyectosGrid.clientWidth;
+
+    prevProyectoBtn.style.opacity = scrollLeft <= 0 ? '0.3' : '1';
+    prevProyectoBtn.style.pointerEvents = scrollLeft <= 0 ? 'none' : 'auto';
+
+    nextProyectoBtn.style.opacity = scrollLeft >= maxScroll - 10 ? '0.3' : '1';
+    nextProyectoBtn.style.pointerEvents = scrollLeft >= maxScroll - 10 ? 'none' : 'auto';
   });
 }
