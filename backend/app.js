@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* servir frontend */
-app.use(express.static('frontend'));
+app.use(express.static('../frontend'));
 
 /* rutas */
-const routerComentarios = require('./backend/router_comentarios');
+const routerComentarios = require('./router_comentarios');
 app.use('/api/comentarios', routerComentarios);
 
 /* conexión Mongo */
