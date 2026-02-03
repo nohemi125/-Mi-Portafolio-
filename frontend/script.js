@@ -1009,10 +1009,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const openCvBtn = document.getElementById('openCvModal')
   const closeCvBtn = document.querySelector('.cv-close')
 
-  // console.log('cvModal:', cvModal);
-  // console.log('cvFrame:', cvFrame);
-  // console.log('openCvBtn:', openCvBtn);
-  // console.log('closeCvBtn:', closeCvBtn);
+
 
   const openCvModal = () => {
     const cvPath = openCvBtn?.dataset.cv
@@ -1105,9 +1102,8 @@ let estrellasSeleccionadas = 0;
 const API_BASE =
   window.location.hostname === 'localhost'
     ? 'http://localhost:3000'
-    : 'https://mi-portafolio-production-a849.up.railway.app';
+    : 'https://mi-portafolio-u4sg.onrender.com';
 
-console.log('🌐 API_BASE configurado:', API_BASE);
 
   //  ELEMENTOS
 
